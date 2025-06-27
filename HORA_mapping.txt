@@ -1,0 +1,5 @@
+Mapping for 'HORA':
+MADRUGADA -> 0
+MAÑANA -> 1
+TARDE -> 2
+NOCHE -> 3

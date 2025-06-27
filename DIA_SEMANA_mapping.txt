@@ -1,0 +1,8 @@
+Mapping for 'DÍA DE LA SEMANA':
+Domingo -> 6
+Jueves -> 3
+Lunes -> 0
+Martes -> 1
+Miércoles -> 2
+Sábado -> 5
+Viernes -> 4
