@@ -79,6 +79,22 @@ def cargar_mapping(nombre_archivo):
         return None
     return mapping
 
+# Reorder columns
+        column_order = [
+            'RESULTADO DE BEODEZ',
+            'DIA_SEMANA_CODIFICADO',
+            'HORA_CODIFICADA',
+            'CLASE DE ACCIDENTE_ATROPELLO',
+            'CLASE DE ACCIDENTE_CAIDA OCUPANTE',
+            'CLASE DE ACCIDENTE_CHOQUE',
+            'CLASE DE ACCIDENTE_INCENDIO',
+            'CLASE DE ACCIDENTE_VOLCAMIENTO',
+            'BARRIO_VEREDA',
+            'BARRIO_ZONA 1',
+            'BARRIO_ZONA 2',
+            'BARRIO_ZONA 3'
+        ]
+
 # Load saved objects
 try:
     one_hot_encoder = joblib.load('one_hot_encoder.joblib')
@@ -179,22 +195,6 @@ if uploaded_file is not None:
         df_processed_user.reset_index(drop=True, inplace=True)
         encoded_df.reset_index(drop=True, inplace=True)
         df_processed_user = pd.concat([df_processed_user, encoded_df], axis=1)
-
-        # Reorder columns
-        column_order = [
-            'RESULTADO DE BEODEZ',
-            'DIA_SEMANA_CODIFICADO',
-            'HORA_CODIFICADA',
-            'CLASE DE ACCIDENTE_ATROPELLO',
-            'CLASE DE ACCIDENTE_CAIDA OCUPANTE',
-            'CLASE DE ACCIDENTE_CHOQUE',
-            'CLASE DE ACCIDENTE_INCENDIO',
-            'CLASE DE ACCIDENTE_VOLCAMIENTO',
-            'BARRIO_VEREDA',
-            'BARRIO_ZONA 1',
-            'BARRIO_ZONA 2',
-            'BARRIO_ZONA 3'
-        ]
 
         # Ensure all required columns are in the processed dataframe before reordering
         missing_cols_for_prediction = [col for col in column_order if col not in df_processed_user.columns]
